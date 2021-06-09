@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InstagramMessages.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="InstaMessage!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Name" FontSize="Title" Padding="30,10,30,10" />
+            <Entry Placeholder="Name" FontSize="Title"  Grid.Row="1" Margin="30,2,30,10"/>
+            <Label Text="Game" FontSize="Title" Padding="30,10,30,10" Grid.Column="1"/>
+            <Entry Placeholder="Game" FontSize="Title"  Grid.Row="1" Grid.Column="1" Margin="30,2,30,10"/>
+        </Grid>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <StackLayout>
+                <Switch></Switch>                
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+
+</ContentPage>
