@@ -10,7 +10,8 @@ namespace InstagramMessages
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new InstagramMessages.Pages.LoginPage();
+
         }
 
         protected override void OnStart()
