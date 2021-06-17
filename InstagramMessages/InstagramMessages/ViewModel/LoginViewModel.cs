@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -13,6 +14,8 @@ namespace InstagramMessages.ViewModel
         public Action DisplaySuccesfullLoginPrompt;
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
         private string email;
+        public Command LogInCommand { get; }
+        public Command RegistrationCommand { get; }
         public string Email
         {
             get { return email; }
@@ -32,21 +35,26 @@ namespace InstagramMessages.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs("Password"));
             }
         }
+
+        public INavigation Navigation { get; set; }
         public ICommand SubmitCommand { protected set; get; }
-        public LoginViewModel()
+        public LoginViewModel(INavigation navigation)
         {
-            SubmitCommand = new Command(OnSubmit);
+            this.Navigation = navigation;
+            SubmitCommand = new Command(async () => await GotoPage2());
         }
-        public void OnSubmit()
+        public async Task GotoPage2()
         {
-            if (email != "silnshadow" || password != "123")
+            if(Email == "Silnshadow" && Password == "123")
             {
-                DisplayInvalidLoginPrompt();
+                await Navigation.PushAsync(new Pages.RegistrationPage());
             }
             else
             {
-                DisplaySuccesfullLoginPrompt();
+                DisplayInvalidLoginPrompt();
             }
+            
         }
+
     }
 }

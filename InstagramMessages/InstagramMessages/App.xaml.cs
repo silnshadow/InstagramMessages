@@ -10,7 +10,8 @@ namespace InstagramMessages
         {
             InitializeComponent();
 
-            MainPage = new InstagramMessages.Pages.LoginPage();
+            //MainPage = new InstagramMessages.Pages.LoginPage();
+            MainPage = new NavigationPage(new InstagramMessages.Pages.LoginPage());
 
         }
 

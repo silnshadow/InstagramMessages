@@ -15,21 +15,11 @@ namespace InstagramMessages.Pages
     {
         public LoginPage()
         {
-            var vm = new LoginViewModel();
+            var vm = new LoginViewModel(Navigation);
             this.BindingContext = vm;
             vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error", "Invalid Login, try again", "OK");
             vm.DisplaySuccesfullLoginPrompt += () => DisplayAlert("Success", "Login is Sueccsfull", "OK");
             InitializeComponent();
-
-            Email.Completed += (object sender, EventArgs e) =>
-            {
-                Password.Focus();
-            };
-
-            Password.Completed += (object sender, EventArgs e) =>
-            {
-                vm.SubmitCommand.Execute(null);
-            };
         }
     }
 }
