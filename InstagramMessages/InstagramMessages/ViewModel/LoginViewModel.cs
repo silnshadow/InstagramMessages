@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InstagramMessages.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -8,11 +9,10 @@ using Xamarin.Forms;
 
 namespace InstagramMessages.ViewModel
 {
-    public class LoginViewModel : INotifyPropertyChanged
+    public class LoginViewModel : Base
     {
         public Action DisplayInvalidLoginPrompt;
         public Action DisplaySuccesfullLoginPrompt;
-        public event PropertyChangedEventHandler PropertyChanged = delegate { };
         private string email;
         public Command LogInCommand { get; }
         public Command RegistrationCommand { get; }
@@ -22,7 +22,7 @@ namespace InstagramMessages.ViewModel
             set
             {
                 email = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Email"));
+                OnPropertyChanged(Email);
             }
         }
         private string password;
@@ -32,7 +32,7 @@ namespace InstagramMessages.ViewModel
             set
             {
                 password = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Password"));
+                OnPropertyChanged(Password);
             }
         }
 
@@ -45,15 +45,16 @@ namespace InstagramMessages.ViewModel
         }
         public async Task GotoPage2()
         {
-            if(Email == "Silnshadow" && Password == "123")
+            if(Email == "S" && Password == "1")
             {
-                await Navigation.PushAsync(new Pages.RegistrationPage());
+                await Navigation.PushAsync(new Pages.FileExplorePage());
             }
             else
             {
                 DisplayInvalidLoginPrompt();
+                await Navigation.PushAsync(new Pages.RegistrationPage());
             }
-            
+           
         }
 
     }
