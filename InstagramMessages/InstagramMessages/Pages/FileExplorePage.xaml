@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InstagramMessages.Pages.FileExplorePage">
+    <ContentPage.Content>
+        <Grid
+            VerticalOptions="Center"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="85"/>
+            </Grid.RowDefinitions>
+            <Label 
+                Text="Want To Read : )"
+                HorizontalTextAlignment="Center"
+                VerticalOptions="Center"
+                Padding="10"
+                TextColor="Red"
+                FontSize="Title"
+                Background="LightGreen"/>
+            <Frame 
+                Margin="10"
+                Padding="5"
+                Grid.Row="1"
+                BorderColor="LightGoldenrodYellow"
+                CornerRadius="10"
+                HasShadow="True"
+                HorizontalOptions="FillAndExpand"
+                IsClippedToBounds="True"
+                >
+                <CollectionView ItemsSource="{Binding Model.TestContentList , Mode=TwoWay}" />
+            </Frame>
+            <Frame 
+                Grid.Row="2"
+                BorderColor="YellowGreen"
+                IsClippedToBounds="True"
+                CornerRadius="10"
+                HasShadow="True">
+                <Button
+                    Command="{Binding BrowseFileCommand}"
+                    BackgroundColor="LightGreen"
+                    Text="Browse"/>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

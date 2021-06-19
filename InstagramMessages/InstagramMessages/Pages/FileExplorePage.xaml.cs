@@ -11,14 +11,13 @@ using Xamarin.Forms.Xaml;
 namespace InstagramMessages.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class FileExplorePage : ContentPage
     {
-        public LoginPage()
+        public FileExplorePage()
         {
-            var vm = new LoginViewModel(Navigation);
+            var vm = new FileExploreViewModel();
             this.BindingContext = vm;
-            vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error", "Please Register", "OK");
-            vm.DisplaySuccesfullLoginPrompt += () => DisplayAlert("Success", "Login is Sueccsfull", "OK");
+            vm.Searching += () => DisplayAlert("Wait", "I am Searching", "OK");
             InitializeComponent();
         }
     }
