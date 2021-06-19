@@ -19,7 +19,7 @@ jobs:
         dotnet-version: '5.0.x'
 
     - name: Install dependencies
-      run: nuget restore <InstagramMessages/InstagramMessages/InstagramMessages.csproj>
+      run: nuget restore InstagramMessages/InstagramMessages/InstagramMessages.csproj
 
     - name: Build
-      run: msbuild <InstagramMessages/InstagramMessages/InstagramMessages.csproj> /t:PackageForAndroid /p:Configuration=Debug
+      run: msbuild InstagramMessages/InstagramMessages/InstagramMessages.csproj /t:PackageForAndroid /p:Configuration=Debug
