@@ -6,6 +6,9 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using System.Threading.Tasks;
 using InstagramMessages.Model.FileExplore;
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace InstagramMessages.ViewModel
 {
@@ -24,9 +27,26 @@ namespace InstagramMessages.ViewModel
             var File = await FilePicker.PickAsync();
             if(File != null)
             {
-                Model.FileName = File.FileName;
+                var path = File.FullPath;
+                ConvertToJsonObject(path);
+                //Model.FileName = File.FileName;
             }
         }
 
+        private void ConvertToJsonObject(string filePath)
+        {
+            using (StreamReader file = File.OpenText(@filePath))
+            using (JsonTextReader reader = new JsonTextReader(file))
+            {
+                JObject o2 = (JObject)JToken.ReadFrom(reader);
+                foreach (JProperty property in o2.Properties())
+                {
+                    var a = property.Name + " - " + property.Value;
+                    Model.TestContentList.Add(a);
+                }
+
+                //Model.FileName = o2.ToString();
+            }
+        }
     }
 }

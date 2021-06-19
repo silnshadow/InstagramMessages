@@ -29,7 +29,7 @@
                 HorizontalOptions="FillAndExpand"
                 IsClippedToBounds="True"
                 >
-                <Label Text="{Binding Model.FileName, Mode=TwoWay}" HorizontalTextAlignment="Center" />
+                <CollectionView ItemsSource="{Binding Model.TestContentList , Mode=TwoWay}" />
             </Frame>
             <Frame 
                 Grid.Row="2"
