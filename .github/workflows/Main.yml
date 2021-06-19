@@ -40,4 +40,4 @@ jobs:
       run: |
         cd InstagramMessages
         nuget restore
-        msbuild InstagramMessages.iOS/Blank.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
+        msbuild InstagramMessages.iOS/InstagramMessages.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug     
