@@ -29,7 +29,6 @@ namespace InstagramMessages.ViewModel
             {
                 var path = File.FullPath;
                 ConvertToJsonObject(path);
-                //Model.FileName = File.FileName;
             }
         }
 
@@ -45,7 +44,6 @@ namespace InstagramMessages.ViewModel
                     Model.TestContentList.Add(a);
                 }
 
-                //Model.FileName = o2.ToString();
             }
         }
     }
