@@ -41,7 +41,7 @@ namespace InstagramMessages.ViewModel
                 foreach (JProperty property in o2.Properties())
                 {
                     var a = property.Name + " - " + property.Value;
-                    Model.TestContentList.Add(a);//To Test Build Pipelinee
+                    Model.TestContentList.Add(a);//To Test Build Pipeline
                 }
 
             }
