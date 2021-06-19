@@ -1,0 +1,25 @@
+name: Build Xamarin.Android app
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set default Xamarin SDK versions
+      run: |
+        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.10 --android=10.2
+
+    - name: Setup .NET Core SDK 5.0.x
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.x'
+
+    - name: Install dependencies
+      run: nuget restore <InstagramMessages/InstagramMessages/InstagramMessages.csproj>
+
+    - name: Build
+      run: msbuild <InstagramMessages/InstagramMessages/InstagramMessages.csproj> /t:PackageForAndroid /p:Configuration=Debug
