@@ -1,33 +1,24 @@
-name: Release
+name: CI on Push and Pull Request
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push, pull_request]
 
 jobs:
-  # Build App
-  build:
-    runs-on: windows-latest
+  Android:
+
+    runs-on: macos-latest
     
-    env:
-      SERVICE_APP_KEY: ${{ secrets.SERVICE_APP_KEY }}
-
     steps:
-      - uses: actions/checkout@v2
 
-      - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v1.0.0        
+    - uses: actions/checkout@v1
+      
+    - name: Deployment
+      run: |
+        nuget restore
+        cd InstagramMessages/InstagramMessages.Android
+        msbuild InstagramMessages.Android.csproj /verbosity:normal /t:Rebuild /t:PackageForAndroid /t:SignAndroidPackage /p:Configuration=Release 
 
-      - name: Build Solution
-        run: msbuild ./InstagramMessages.sln /restore /p:Configuration=Release
-
-      - name: Create and Sign the APK
-        run: msbuild InstagramMessages\InstagramMessages.Android\InstagramMessages.Android.csproj /t:SignAndroidPackage /p:Configuration=Release /p:OutputPath=bin\Release\
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: InstagramMessages.apk
-          path: InstagramMessages\InstagramMessages.Android\bin\Release\com.companyname.myapplication-Signed.apk 
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Android App
+        path: InstagramMessages/InstagramMessages.Android/bin/Release/com.companyname.instagrammessages-Signed.apk
+        
