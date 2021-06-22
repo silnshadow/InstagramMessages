@@ -34,7 +34,7 @@ jobs:
     - name: Android
       run: |
         nuget restore
-        cd InstagramMessages/InstagramMessages.Android
+        cd InstagramMessages/InstagramMessages/InstagramMessages.Android
         msbuild InstagramMessages.Android.csproj /verbosity:normal /t:Rebuild /t:PackageForAndroid /t:SignAndroidPackage /p:Configuration=Debug 
 
     - uses: actions/upload-artifact@v2
@@ -54,6 +54,7 @@ jobs:
     - name: iOS Simulator
       run: |
         nuget restore
+        cd InstagramMessages/InstagramMessages.iOS
         msbuild InstagramMessages.iOS/InstagramMessages.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
         
     - uses: actions/upload-artifact@v2
