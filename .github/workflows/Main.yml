@@ -10,10 +10,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run a one-line script
-      run: echo Hello, world!
+      run: ls
     - name: Run a multi-line script
       run: |
-        cd InstagramMessages
+        cd InstagramMessages.sln
         ls
     - name: Show what in there
       run: |
