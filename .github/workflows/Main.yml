@@ -28,7 +28,6 @@ jobs:
     - name: Android
       run: |
         cd InstagramMessages
-        nuget restore
         cd InstagramMessages.Android
         msbuild InstagramMessages.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
         
@@ -39,5 +38,4 @@ jobs:
     - name: iOS
       run: |
         cd InstagramMessages
-        nuget restore
         msbuild InstagramMessages.iOS/InstagramMessages.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug     
