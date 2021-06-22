@@ -34,17 +34,7 @@ namespace InstagramMessages.ViewModel
 
         private void ConvertToJsonObject(string filePath)
         {
-            using (StreamReader file = File.OpenText(@filePath))
-            using (JsonTextReader reader = new JsonTextReader(file))
-            {
-                JObject o2 = (JObject)JToken.ReadFrom(reader);
-                foreach (JProperty property in o2.Properties())
-                {
-                    var a = property.Name + " - " + property.Value;
-                    Model.TestContentList.Add(a);
-                }
 
-            }
         }
     }
 }
