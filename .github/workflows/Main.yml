@@ -20,5 +20,5 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: Android App
-        path: InstagramMessages/InstagramMessages.Android/bin/Debug/com.companyname.instagrammessages.apk
+        path: InstagramMessages/InstagramMessages.Android/bin/Debug/com.companyname.instagrammessages-Signed.apk
         
