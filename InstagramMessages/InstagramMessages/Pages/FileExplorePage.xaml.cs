@@ -17,7 +17,7 @@ namespace InstagramMessages.Pages
         {
             var vm = new FileExploreViewModel();
             this.BindingContext = vm;
-            vm.Searching += () => DisplayAlert("Wait", "I am Searching", "OK");
+            vm.Searching += () => DisplayAlert("Created", "I created your file", "OK");
             InitializeComponent();
         }
     }
