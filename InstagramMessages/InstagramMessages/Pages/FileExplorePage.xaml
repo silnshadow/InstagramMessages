@@ -55,7 +55,10 @@
                     IsVisible="{Binding Model.IsButtonNeeded}"/>
             </StackLayout>
             <ScrollView Grid.Row="4">
-                <Label Text="{Binding Model.TestLabelValue, Mode=TwoWay,UpdateSourceEventName=PropertyChanged}" Margin="10"/>
+                <Label Text="{Binding Model.TestLabelValue, Mode=TwoWay,UpdateSourceEventName=PropertyChanged}"
+                       Margin="10" 
+                       TextColor="DarkGray"
+                       BackgroundColor="White"/>
             </ScrollView>
         </Grid>
     </ContentPage.Content>

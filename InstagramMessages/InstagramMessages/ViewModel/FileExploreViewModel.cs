@@ -45,7 +45,6 @@ namespace InstagramMessages.ViewModel
         {
             Model = new FileExploreModel();
             RadableMessage = new StringBuilder();
-            RadableMessage.AppendLine("S" + "Am");
             BrowseFileCommand = new Command(() => SearchFile());
             CreateReadableFileCommand = new Command(() => CreateReadableFile());
         }
