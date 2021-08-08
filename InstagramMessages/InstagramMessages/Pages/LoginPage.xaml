@@ -12,14 +12,14 @@
                     <Entry x:Name="Email" 
                            Text="{Binding Email}" 
                            Placeholder="Email"   
-                           PlaceholderColor="White" 
+                           PlaceholderColor="GreenYellow"
                            HeightRequest="40"   
                            Keyboard="Email"  
                            TextColor="White"/>
                     <Entry x:Name="Password" 
                            Text="{Binding Password}" 
                            Placeholder="Password"   
-                           PlaceholderColor="White" 
+                           PlaceholderColor="GreenYellow" 
                            HeightRequest="40"   
                            IsPassword="True"  
                            TextColor="White"/>
